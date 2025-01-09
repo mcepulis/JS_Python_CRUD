@@ -34,11 +34,11 @@ def update_contact(user_id):
     if not contact:
         return jsonify({"error": "Contact not found"}), 404
     
-    data=request.json()
-    contact.first_name = data.get("firstName"), contact.first_name
-    contact.last_name = data.get("lastName"), contact.last_name
-    contact.email = data.get("email"), contact.email
-    contact.phone = data.get("phone"), contact.phone
+    data=request.json
+    contact.first_name = data.get("firstName", contact.first_name)
+    contact.last_name = data.get("lastName", contact.last_name)
+    contact.email = data.get("email", contact.email)
+    contact.phone = data.get("phone", contact.phone)
 
     db.session.commit()
 
