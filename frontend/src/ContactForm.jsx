@@ -13,14 +13,14 @@ const ContactForm = ({ existingContact = {}, updateCallback }) => {
         e.preventDefault()
 
         const data = {
-            firstName,
-            lastName,
+            first_name: firstName,
+            last_name: lastName,
             email,
             phone
         }
         const url = "http://127.0.0.1:5000/" + (updating ? `update_contact/${existingContact.id}` : "create_contact")
         const options = {
-            method: updating ? "PATCH" : "POST",
+            method: updating ? "PUT" : "POST",
             headers: {
                 "Content-Type": "application/json"
             },
